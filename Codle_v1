@@ -8,7 +8,7 @@ public class Codle implements ActionListener, KeyListener {
     JFrame frame;
     JPanel grid;
     JLabel title;
-    String[] words = /*{"java", */{"algorithm"};//, "inheritance", "array"};
+    String[] words = {"java", "algorithm", "inheritance", "array"};
     int randomNum = (int)(Math.random()*words.length);
     JTextField[][] tiles;
     private int col = 0;
