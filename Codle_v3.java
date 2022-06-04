@@ -26,7 +26,7 @@ public class Codle_v3 implements ActionListener, KeyListener {
         grid = new JPanel();
         title = new JLabel("Codle");
         
-        title.setBounds(225, 20, 150, 50);              //create title of GUI
+        // title.setBounds(0, 0, 150, 50);              //create title of GUI
         title.setBackground(Color.black);
         title.setOpaque(true);
         title.setFont(new Font("Helvetica Neue", Font.BOLD, 36));
@@ -62,7 +62,7 @@ public class Codle_v3 implements ActionListener, KeyListener {
         }
         
         lPane.add(grid, Integer.valueOf(0));
-
+        title.setBounds(0, 0, grid.getWidth() + 100, 100);
         frame.setTitle("Codle");
         frame.add(title);
         frame.add(lPane);
