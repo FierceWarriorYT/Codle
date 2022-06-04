@@ -112,12 +112,16 @@ public class Codle2 implements ActionListener, KeyListener {
                   }
               }
           }
-          row++;
-          col = -1;
-          last = false;
+          if(row!=5)
+          {
+            row++;
+            col = -1;
+            last = false;
+          }
       }
       if(!last)               
       {
+          System.out.println(tiles[row][col+1].getText());
           tiles[row][col+1].requestFocus();
           tiles[row][col+1].setCaretPosition(0);
       }
@@ -136,7 +140,7 @@ public class Codle2 implements ActionListener, KeyListener {
     public void keyReleased(KeyEvent e) {}
     
     public static void main (String[] args) {
-        Codle game = new Codle();
+        Codle2 game = new Codle2();
     }
 }
 
