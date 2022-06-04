@@ -103,6 +103,7 @@ public class Codle implements ActionListener, KeyListener {
         //Condition on next line not working
         if (col >= 0 && col < words[randomNum].length() && ((e.getKeyCode() >= 65 && e.getKeyCode() <= 90) || e.getKeyCode() == KeyEvent.VK_BACK_SPACE)) {
             tiles[row][col].setEditable(true);
+            tiles[row][col].setText(Character.toString(e.getKeyChar()).toUpperCase());
         } else if (!(e.getKeyCode() >= 65 && e.getKeyCode() <= 90)) {
             tiles[row][col].setEditable(false);
         }
