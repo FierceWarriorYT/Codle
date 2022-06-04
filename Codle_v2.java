@@ -15,6 +15,8 @@ public class Codle_v2 implements ActionListener, KeyListener {
     private int col = 0;
     private int row = 0;
     private boolean last = false;
+    private int height = 0;
+    private int width = 0;
     
     public Codle_v2() {
         initUI();
@@ -68,7 +70,9 @@ public class Codle_v2 implements ActionListener, KeyListener {
         frame.add(lPane);
         
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(grid.getBounds().height, grid.getBounds().width);
+        width = grid.getWidth();
+        height = grid.getHeight();
+        frame.setSize(width + 100, height + 180);
         frame.getContentPane().setBackground(Color.black);   
         frame.setLayout(null);
         frame.setVisible(true);
