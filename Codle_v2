@@ -206,8 +206,8 @@ public class Codle implements ActionListener, KeyListener {
                     System.out.println("lost");
                 }
             }
-        } else {
-            if(!last && col < words[randomNum].length() - 1 && e.getKeyCode() != KeyEvent.VK_ENTER)               //avoiding movement when backspace is pressed is not working
+        } 
+        if(!last && col < words[randomNum].length() - 1 && e.getKeyCode() != KeyEvent.VK_ENTER)               //avoiding movement when backspace is pressed is not working
             {
                 tiles[row][col+1].requestFocus();
                 tiles[row][col+1].setCaretPosition(0);
@@ -224,7 +224,6 @@ public class Codle implements ActionListener, KeyListener {
                 }
             }
         }
-    }
 
     public void actionPerformed(ActionEvent e) {}
     public void keyTyped(KeyEvent e) {}
