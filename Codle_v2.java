@@ -161,58 +161,56 @@ public class Codle_v2 implements ActionListener, KeyListener {
                 lPane.add(panel, Integer.valueOf(1));
 
                 System.out.println("won");
-            } else {
-                //display losing screen
-                if (row == 6) {
-                    JPanel panel = new JPanel();
-                    panel.setBounds(grid.getBounds().width/2 - 100, grid.getBounds().height/2 - 150, 200, 300);
-                    panel.setBackground(Color.DARK_GRAY);
-                    
-                    JLabel j = new JLabel("L");
-                    j.setBounds(panel.getBounds().width/2 - 25, panel.getBounds().height/2 - 10, 50, 20);
-                    j.setBackground(Color.DARK_GRAY);
-                    j.setHorizontalAlignment(JLabel.CENTER);
-                    j.setVerticalAlignment(JLabel.CENTER);
-                    j.setFont(new Font("Helvetica Neue", Font.BOLD, 36));
-                    j.setForeground(Color.white);
-                    j.setOpaque(true);
-
-                    JLabel k = new JLabel("+ Ratio");
-                    k.setBounds(panel.getBounds().width/2 - 25, panel.getBounds().height/2 - 10, 50, 20);
-                    k.setBackground(Color.DARK_GRAY);
-                    k.setHorizontalAlignment(JLabel.CENTER);
-                    k.setVerticalAlignment(JLabel.CENTER);
-                    k.setFont(new Font("Helvetica Neue", Font.BOLD, 36));
-                    k.setForeground(Color.white);
-                    k.setOpaque(true);
-
-                    JLabel l = new JLabel("+ Bozo");
-                    l.setBounds(panel.getBounds().width/2 - 25, panel.getBounds().height/2 - 10, 50, 20);
-                    l.setBackground(Color.DARK_GRAY);
-                    l.setHorizontalAlignment(JLabel.CENTER);
-                    l.setVerticalAlignment(JLabel.CENTER);
-                    l.setFont(new Font("Helvetica Neue", Font.BOLD, 36));
-                    l.setForeground(Color.white);
-                    l.setOpaque(true);
-
-                    JButton restartButton = new JButton("Restart");
-                    restartButton.addActionListener((event) -> restartGame());
-
-                    panel.add(j);
-                    panel.add(k);
-                    panel.add(l);
-                    panel.add(restartButton);
-                    
-                    lPane.add(panel, Integer.valueOf(1));
-                    
-                    System.out.println("lost");
-                }
             }
-            if (guess.length() == words[randomNum].length())
+            row++;
+            col = -1;
+            last = false;
+            System.out.println(row);
+            if(row == 6)
             {
-                row++;
-                col = -1;
-                last = false;
+                System.out.println("bob");
+                JPanel panel = new JPanel();
+                panel.setBounds(grid.getBounds().width/2 - 100, grid.getBounds().height/2 - 150, 200, 300);
+                panel.setBackground(Color.DARK_GRAY);
+                
+                JLabel j = new JLabel("L");
+                j.setBounds(panel.getBounds().width/2 - 25, panel.getBounds().height/2 - 10, 50, 20);
+                j.setBackground(Color.DARK_GRAY);
+                j.setHorizontalAlignment(JLabel.CENTER);
+                j.setVerticalAlignment(JLabel.CENTER);
+                j.setFont(new Font("Helvetica Neue", Font.BOLD, 36));
+                j.setForeground(Color.white);
+                j.setOpaque(true);
+
+                JLabel k = new JLabel("+ Ratio");
+                k.setBounds(panel.getBounds().width/2 - 25, panel.getBounds().height/2 - 10, 50, 20);
+                k.setBackground(Color.DARK_GRAY);
+                k.setHorizontalAlignment(JLabel.CENTER);
+                k.setVerticalAlignment(JLabel.CENTER);
+                k.setFont(new Font("Helvetica Neue", Font.BOLD, 36));
+                k.setForeground(Color.white);
+                k.setOpaque(true);
+
+                JLabel l = new JLabel("+ Bozo");
+                l.setBounds(panel.getBounds().width/2 - 25, panel.getBounds().height/2 - 10, 50, 20);
+                l.setBackground(Color.DARK_GRAY);
+                l.setHorizontalAlignment(JLabel.CENTER);
+                l.setVerticalAlignment(JLabel.CENTER);
+                l.setFont(new Font("Helvetica Neue", Font.BOLD, 36));
+                l.setForeground(Color.white);
+                l.setOpaque(true);
+
+                JButton restartButton = new JButton("Restart");
+                restartButton.addActionListener((event) -> restartGame());
+
+                panel.add(j);
+                panel.add(k);
+                panel.add(l);
+                panel.add(restartButton);
+                
+                lPane.add(panel, Integer.valueOf(1));
+                
+                System.out.println("lost");
             }
         }
         if(e.getKeyCode() == KeyEvent.VK_BACK_SPACE)
@@ -224,7 +222,7 @@ public class Codle_v2 implements ActionListener, KeyListener {
             tiles[row][col+1].setText("");
             last = false;
         }
-        if(!last || e.getKeyCode() == KeyEvent.VK_BACK_SPACE)               
+        if((!last && row != 6) || e.getKeyCode() == KeyEvent.VK_BACK_SPACE)               
         {
             tiles[row][col+1].requestFocus();
             tiles[row][col+1].setCaretPosition(0);

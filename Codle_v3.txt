@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 
-public class Codle implements ActionListener, KeyListener {
+public class Codle_v3 implements ActionListener, KeyListener {
     JFrame frame;
     JLayeredPane lPane;
     JPanel grid;
@@ -16,7 +16,7 @@ public class Codle implements ActionListener, KeyListener {
     private int row = 0;
     private boolean last = false;
     
-    public Codle() {
+    public Codle_v3() {
         initUI();
     }
     
@@ -245,7 +245,7 @@ public class Codle implements ActionListener, KeyListener {
     public void keyReleased(KeyEvent e) {}
     
     public static void main (String[] args) {
-        Codle game = new Codle();
+        Codle_v3 game = new Codle_v3();
     }
 }
 
