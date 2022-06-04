@@ -165,8 +165,11 @@ public class Codle implements ActionListener, KeyListener {
 
                 System.out.println("won");
             } else {
-                row++;
-                col = -1;
+                if (guess.length() == words[randomNum].length()) {
+                    row++;
+                    col = -1;
+                }
+
                 //display losing screen
                 if (row == 6) {
                     JPanel panel = new JPanel();
@@ -216,11 +219,12 @@ public class Codle implements ActionListener, KeyListener {
         } else if (e.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
             if (!(col == 0)) {
                 tiles[row][col-1].requestFocus();
-                tiles[row][col-1].setCaretPosition(1);
+                tiles[row][col-1].setText("");
+                tiles[row][col-1].setCaretPosition(0);
                 col--;
             }
         }
-        if (e.getKeyCode() >= 65 && e.getKeyCode() <= 90) {
+        if ((e.getKeyCode() >= 65 && e.getKeyCode() <= 90) || e.getKeyCode() == KeyEvent.VK_ENTER) {
             if(!last && col < words[randomNum].length() - 1 && e.getKeyCode() != KeyEvent.VK_BACK_SPACE)               //avoiding movement when backspace is pressed is not working
             {
                 tiles[row][col+1].requestFocus();
