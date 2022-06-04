@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 
-public class Codle_v3 implements ActionListener, KeyListener {
+public class Codle implements ActionListener, KeyListener {
     JFrame frame;
     JLayeredPane lPane;
     JPanel grid;
@@ -16,7 +16,7 @@ public class Codle_v3 implements ActionListener, KeyListener {
     private int row = 0;
     private boolean last = false;
     
-    public Codle_v3() {
+    public Codle() {
         initUI();
     }
     
@@ -103,7 +103,7 @@ public class Codle_v3 implements ActionListener, KeyListener {
         //Condition on next line not working
         if (col >= 0 && col < words[randomNum].length() && ((e.getKeyCode() >= 65 && e.getKeyCode() <= 90) || e.getKeyCode() == KeyEvent.VK_BACK_SPACE)) {
             tiles[row][col].setEditable(true);
-        } else {
+        } else if (!(e.getKeyCode() >= 65 && e.getKeyCode() <= 90)) {
             tiles[row][col].setEditable(false);
         }
         
@@ -245,7 +245,7 @@ public class Codle_v3 implements ActionListener, KeyListener {
     public void keyReleased(KeyEvent e) {}
     
     public static void main (String[] args) {
-        Codle_v3 game = new Codle_v3();
+        Codle game = new Codle();
     }
 }
 
