@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 
-public class Codle implements ActionListener, KeyListener {
+public class Codle_v3 implements ActionListener, KeyListener {
     JFrame frame;
     JLayeredPane lPane;
     JPanel grid;
@@ -16,7 +16,7 @@ public class Codle implements ActionListener, KeyListener {
     private int row = 0;
     private boolean last = false;
     
-    public Codle() {
+    public Codle_v3() {
         initUI();
     }
     
@@ -228,8 +228,11 @@ public class Codle implements ActionListener, KeyListener {
         if ((e.getKeyCode() >= 65 && e.getKeyCode() <= 90) || e.getKeyCode() == KeyEvent.VK_ENTER) {
             if(!last && col < words[randomNum].length() - 1 && e.getKeyCode() != KeyEvent.VK_BACK_SPACE)               //avoiding movement when backspace is pressed is not working
             {
-                tiles[row][col+1].requestFocus();
-                tiles[row][col+1].setCaretPosition(0);
+                if(row != 6)
+                {
+                    tiles[row][col+1].requestFocus();
+                    tiles[row][col+1].setCaretPosition(0);
+                }
             }
             if (!(col == words[randomNum].length() - 1) && (!(col == words[randomNum].length() - 1) && (row != 6)) && e.getKeyCode() != KeyEvent.VK_BACK_SPACE)
             {
@@ -250,7 +253,7 @@ public class Codle implements ActionListener, KeyListener {
     public void keyReleased(KeyEvent e) {}
     
     public static void main (String[] args) {
-        Codle game = new Codle();
+        Codle_v3 game = new Codle_v3();
     }
 }
 
