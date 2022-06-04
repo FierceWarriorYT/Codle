@@ -104,7 +104,7 @@ public class Codle_v2 implements ActionListener, KeyListener {
 
     public void keyPressed(KeyEvent e)
     {
-        if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+        if (e.getKeyCode() == KeyEvent.VK_ENTER && col == words[randomNum].length()-1) {
             //check guess and change tile colors appopriately
             String guess = "";
             for (int i = 0; i < words[randomNum].length(); i++) {
@@ -208,11 +208,23 @@ public class Codle_v2 implements ActionListener, KeyListener {
                     System.out.println("lost");
                 }
             }
-            row++;
-            col = -1;
+            if (guess.length() == words[randomNum].length())
+            {
+                row++;
+                col = -1;
+                last = false;
+            }
+        }
+        if(e.getKeyCode() == KeyEvent.VK_BACK_SPACE)
+        {
+            if (col >= 1)
+            {
+                col-=2;
+            }
+            tiles[row][col+1].setText("");
             last = false;
         }
-        if(!last)               
+        if(!last || e.getKeyCode() == KeyEvent.VK_BACK_SPACE)               
         {
             tiles[row][col+1].requestFocus();
             tiles[row][col+1].setCaretPosition(0);
@@ -220,10 +232,10 @@ public class Codle_v2 implements ActionListener, KeyListener {
         if (!(col == words[randomNum].length() - 1) && (!(col == words[randomNum].length() - 1) && (row != 6)))
         {
             col++;
-          if (col == words[randomNum].length()-1)
-          {
-            last = true;
-          }
+            if (col == words[randomNum].length()-1)
+            {
+                last = true;
+            }
         }
     }
 
