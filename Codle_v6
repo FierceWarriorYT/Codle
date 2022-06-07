@@ -16,7 +16,7 @@ public class Codle implements ActionListener, KeyListener {
     Tile[][] tiles;
     private int col = 0;
     private int row = 0;
-    private boolean last = false;
+    private boolean last = false; 
     
     public Codle() {
         initUI();
