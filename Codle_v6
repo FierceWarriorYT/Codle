@@ -11,7 +11,7 @@ public class Codle implements ActionListener, KeyListener {
     JLayeredPane lPane;
     JPanel grid;
     JLabel title;
-    String[] words = {"JAVA", "ALGORITHM", "INHERITANCE", "ARRAY", "METHOD", "VIRUS","STRING","BINARY","BYTE","CODE","POLYMORPHISM", "EXTENDS","INTEGER","CHAR","ABTRACTION","PROGRAM","PROGRAMMING","CODING","IMMUTABLE","ARGUMENT","PARAMETER","STATEMENT","INPUT"};
+    String[] words = {"JAVA", "ALGORITHM", "INHERITANCE", "ARRAY", "METHOD", "VIRUS","STRING","BINARY","BYTE","CODE","POLYMORPHISM", "EXTENDS","INTEGER","CHAR","PROGRAM","PROGRAMMING","CODING","IMMUTABLE","ARGUMENT","PARAMETER","STATEMENT","INPUT"};
     int randomNum = (int)(Math.random()*words.length);
     Tile[][] tiles;
     private int col = 0;
